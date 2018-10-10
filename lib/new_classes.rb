@@ -76,10 +76,13 @@ class UltraConjured < Item
   end
 end
 
-class Sulfuras < Item
+class Legendary < Item
   include Updater
   def update_quality; end
 end
 
-class Yulfuras < Sulfuras
+class Sulfuras < Legendary
+end
+
+class Yulfuras < Legendary
 end
