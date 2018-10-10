@@ -6,7 +6,7 @@ class Brie < Item
 
   def update_quality
     increase_quality(1) if quality < 50
-    increase_sell_in(-1)
+    increase_sell_in(-1) if quality < 50
     aging if sell_in < 0
   end
   
