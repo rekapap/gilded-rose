@@ -1,5 +1,5 @@
-require_relative 'cheddar'
 require_relative 'item'
+require_relative 'updater'
 
 class Cheddar < Item
   include Updater
