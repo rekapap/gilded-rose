@@ -1,9 +1,7 @@
 require_relative 'item'
-require_relative 'updater'
+require_relative 'updatable_item'
 
-
-class BackstagePass < Item
-  include Updater
+class BackstagePass < UpdatableItem
 
   def update_quality
     update_backstage_pass_quality if quality < 50

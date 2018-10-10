@@ -1,9 +1,10 @@
 require_relative 'conjured'
 
 class UltraConjured < Conjured
-  include Updater
-  
+
+  protected
   def quality_loss
-    @quality_loss = -3
+    -3
   end
+  
 end

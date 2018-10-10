@@ -1,8 +1,7 @@
-require_relative 'item.rb'
-require_relative 'updater.rb'
+require_relative 'item'
+require_relative 'updatable_item'
 
-class Normal < Item
-  include Updater
+class Normal < UpdatableItem
 
   def update_quality
     increase_quality(-1) if quality > 0
