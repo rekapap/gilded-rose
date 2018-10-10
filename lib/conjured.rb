@@ -10,6 +10,6 @@ class Conjured < Item
   end
 
   def quality_loss
-    @quality_loss = -1
+    @quality_loss = -2
   end
 end
