@@ -6,7 +6,7 @@ class GildedRose
   end
 
   def update_quality
-    @items.each(&:update_quality)
+    @items.each(&:update)
   end
 
 end
