@@ -5,6 +5,7 @@ class Cheddar < UpdatableItem
 
   def update_quality
     return unless sell_in < 0
-    quality < 47 ? increase_quality(3) : self.quality = 50
+    return increase_quality(3) if quality < 47
+    self.quality = 50
   end
 end
