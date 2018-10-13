@@ -14,7 +14,7 @@ class ItemFactory
 
   def even_vowels?(name)
     times = 0
-    name.downcase.scan(/[aioue]{1}/) { |_match| times += 1 }
+    name.downcase.scan(/[aioue]/) { |_match| times += 1 }
     (times % 2).zero?
   end
 
