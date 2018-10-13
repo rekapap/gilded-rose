@@ -1,4 +1,5 @@
 require 'updatable_item'
+require 'brie'
 
 describe UpdatableItem do
   subject { UpdatableItem.new('name', 0, 0)}
@@ -48,19 +49,42 @@ describe UpdatableItem do
 
   end
 
+  context 'items with an even number of vowels in the name' do
+    subject { UpdatableItem.new('name', 0, 55, 1, 2) }
 
-  # describe '#extreme_update_quality?' do
-  #   subject { UpdatableItem.new('eXtreme item', 0, 0) }
+    it 'changes half as fast, should not have changed after one update' do
+      expect(subject).not_to receive(:update_quality)
+      subject.update
+    end
 
-  #   it 'has a constant EXTReme, with a the value of 2' do
-  #     expect(UpdatableItem::EXTREME).to eq 2
-  #   end
+    it 'changes half as fast, should update only once after being called twice' do
+      expect(subject).to receive(:update_quality).once
+      subject.update
+      subject.update
+    end
 
-  #   it 'calls the update quality method twice ' do
-  #     expect(subject).to receive(:update_quality).twice
-  #     subject.extreme_update_quality
-  #   end
+    it 'should update twice when called 4 times' do
+      expect(subject).to receive(:update_quality).twice
+      subject.update
+      subject.update
+      subject.update
+      subject.update
+    end
 
-# end
+  end
 
+  context 'test update rate of 3' do
+    subject { UpdatableItem.new('name', 0, 55, 1, 3) }
+
+    it 'should update twice when called 6 times' do
+      expect(subject).to receive(:update_quality).twice
+      subject.update
+      subject.update
+      subject.update
+      subject.update
+      subject.update
+      subject.update
+    end
+
+  end
 end
